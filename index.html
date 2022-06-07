@@ -9,11 +9,31 @@
     <title>Etch a Sketch</title>
 </head>
 <body>
-    <header>
-        <h1>Etch-A-Sketch</g1>
+    <header class="header">
+        <h1 class="header__title">Etch-A-Sketch</h1>
     </header>
-    <div class="container">
+    <div class="main-block">
+        <div class="control-size">
+            <input type="radio" id="size1" name="control-size__radio-button" value="8">
+            <label for="size1">8 x 8</label><br>
+            <input type="radio" id="size2" name="control-size__radio-button" value="16">
+            <label for="size2">16 x 16</label><br>  
+            <input type="radio" id="size3" name="control-size__radio-button" value="24">
+            <label for="size3">24 x 24</label><br>
+            <input type="radio" id="size4" name="control-size__radio-button" value="36">
+            <label for="size4">36 x 36</label><br>
+            <input type="radio" id="size5" name="control-size__radio-button" value="48">
+            <label for="size5">48 x 48</label><br>
+            <input type="radio" id="size5" name="control-size__radio-button" value="68">
+            <label for="size5">68 x 68</label>
+        </div>
         <div class="grid"></div>
+        <div class="control-colour">
+            <button class="control-colour__button" type="button">Black</button> 
+            <button class="control-colour__button" type="button">Red</button> 
+            <button class="control-colour__button" type="button">Random</button> 
+            <button class="control-colour__button" type="button">Heat</button> 
+        </div>
     </div>
 </body>
 </html>

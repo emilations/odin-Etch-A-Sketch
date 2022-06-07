@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(209, 204, 204);
+    background-color: #DEEFB7;
     margin: 0;
     padding: 0;
 }
@@ -9,43 +9,52 @@ body * {
     margin: 0;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-}
-
-header {
+.header {
     border-bottom: 1px black solid;
     text-align: center;
-    margin: 0 0 1em 0;
-
-    background-color: blueviolet;
+    background-color: #682D63;
+    padding: 10px 0 10px 0;
 }
 
-header p {
-    padding: 0;
+.header__title {
+    color: aliceblue;
+}
 
+.main-block {
+    display: flex;
+    justify-content: center;
+    padding-top: 60px;
+    gap: 30px;
+    align-items: center;
 }
 
 /* All things grid related */
 .grid {
-     /* grid-template-columns: auto auto auto auto auto auto; */
-    width: 400px; 
-    height: 400px;
-    border: 1px red solid;
+    width: 500px; 
+    height: 500px;
+    border: 1px rgb(75, 75, 75) solid;
     display: flex;
     flex-direction: column;
 }
 
-.grid-row {
+.grid__row {
     display: flex;
     flex-direction: row;
     flex: 1 1 0;
 }
 
-.grid-element {
+.grid__element {
     flex: 1 1 0;
-    border: solid black 1px;
-    margin: 0;
-    padding: 0;
+    border: solid rgb(75, 75, 75) 1px;
+}
+
+.grid__element--hover {
+    background-color: black;
+}
+
+
+/* All things control related */
+.control-colour {
+    display: flex;
+    flex-direction: column;
 }
