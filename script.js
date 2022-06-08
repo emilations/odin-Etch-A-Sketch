@@ -14,6 +14,8 @@ window.onload = () => {
     createGrid(DEFAULTSIZE)
     setColor(BLACK)
     enableDraw()
+    resetGrid()
+
     listenToRadio()
     listenToButton()
     listenToReset()

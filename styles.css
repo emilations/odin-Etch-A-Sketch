@@ -1,5 +1,7 @@
 body {
-    background-color: #DEEFB7;
+    /* background-color: #DEEFB7; */
+    background-image: linear-gradient(rgba(222, 239, 183, 1), rgba(255,255,0,0));
+    height: 100vh;
     margin: 0;
     padding: 0;
 }
@@ -10,10 +12,10 @@ body * {
 }
 
 .header {
-    border-bottom: 1px black solid;
+    border-bottom: 2px #2f3030 solid;
     text-align: center;
     background-color: #682D63;
-    padding: 10px 0 10px 0;
+    padding: 15px 0 10px 0;
 }
 
 .header__title {
@@ -53,4 +55,21 @@ body * {
 .control-color {
     display: flex;
     flex-direction: column;
+}
+
+.control-size > label{
+    width: 100%;
+}
+
+.control-size label {
+    margin-bottom: 5px;
+}
+
+/* Override bootstrap */
+.btn-check:checked + .btn-secondary {
+	background-color: #682D63;
+}
+
+.btn-check:focus + .btn-secondary, .btn-secondary:focus {
+	box-shadow: none;
 }
