@@ -1,4 +1,4 @@
-// Initialisation #############################################################
+// ############################ Initialisation ################################
 const grid = document.querySelector(".grid");
 
 const DEFAULTSIZE = 16;
@@ -6,24 +6,29 @@ const BLACK = "black"
 const RED = "red"
 const WHITE = "white"
 
-let color = "black";
+let gridElements;
+let randomizeColor = false;
 
+// ################################### Start ##################################
 window.onload = () => {
     createGrid(DEFAULTSIZE)
     setColor(BLACK)
+    enableDraw()
     listenToRadio()
     listenToButton()
-    enableDraw()
+    listenToReset()
 }
 
-// Function delcaration ##################################################################
+// ######################### Function delcaration #############################
 function listenToRadio() {
     const radioButtons = document.querySelectorAll(
         'input[name="control-size__radio-button"]');
     radioButtons[1].checked = "true"; // Enable radio button 16x16 by default
     radioButtons.forEach(function(radioButton){
         radioButton.addEventListener("click", function(e) {
-            createGrid(e.originalTarget.value)})})
+            createGrid(e.originalTarget.value);
+            enableDraw();
+        })})
 }
 
 function listenToButton() {
@@ -34,7 +39,7 @@ function listenToButton() {
 }
 
 function createGrid(size) {
-    resetGrid()
+    grid.innerHTML = "";
     for (let i = 0; i < size; i++) {
         const gridRow = document.createElement("div");
         gridRow.classList.add("grid__row");
@@ -43,24 +48,39 @@ function createGrid(size) {
             gridElement.classList.add("grid__element");
             gridRow.append(gridElement)};
         grid.append(gridRow)}
-    enableDraw()
 }
 
 function enableDraw() {
-    const gridElements = document.querySelectorAll(".grid__element");
+    gridElements = document.querySelectorAll(".grid__element");
     gridElements.forEach((gridElement) => {
-        gridElement.addEventListener("mouseover", brushColor)
-    })
+        gridElement.addEventListener("mouseover", function() {
+            if (randomizeColor) {
+                setColor("random")
+                this.style.backgroundColor = color;
+            } else {
+                this.style.backgroundColor = color;}})})
 }
 
+function listenToReset() {
+    const button = document.querySelector(".control-reset__button");
+    button.addEventListener("click", function() {
+        resetGrid()})
+}
+
+
 function setColor(newColor) {
-    color = newColor;
+    randomizeColor = (newColor == "random") ? true : false;
+    color = (newColor == "random") ? "#" + Math.floor(Math.random()*16777215).toString(16) : newColor;
 }
 
 function brushColor() {
-    this.style.backgroundColor = color;
 }
 
 function resetGrid() {
-    grid.innerHTML = "";
+    gridElements.forEach((gridElement) => {
+        gridElement.style.backgroundColor = WHITE})
+}
+
+function randomColor() {
+    let randomNumber = Math.random()
 }
