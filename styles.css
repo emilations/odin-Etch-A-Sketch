@@ -9,6 +9,7 @@ body {
 body * {
     padding: 0;
     margin: 0;
+    font-family: monospace;
 }
 
 .header {
@@ -16,10 +17,17 @@ body * {
     text-align: center;
     background-color: #682D63;
     padding: 15px 0 10px 0;
-}
+    box-shadow: 0px 0px 1px black;}
 
 .header__title {
     color: aliceblue;
+    text-shadow: 1px 1px #000000;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    font-style: italic;
 }
 
 /* All things grid related */
@@ -52,24 +60,103 @@ body * {
     border: solid rgb(75, 75, 75) 1px;
 }
 
-.control-color {
+/* Controls size*/
+
+.control-size input {
+    display: none;
+}
+
+.control-size input:checked+label {
+    background-color: #682D63;
+}
+
+.control__radio-button {
+    color: white;
+    background-color:gray;
+    text-align: center;
+    display: block;
+    padding: 5px 10px;
+    margin: 6px;
+    border: 1px solid black;
+	border-radius: 3px;
+    box-shadow: 0px 0px 1px black;
+	cursor:pointer;
+	font-size:16px;
+}
+
+.control-size .control__radio-button:hover {
+	background-color:#DEEFB7 !important;
+    color: black;
+}
+
+/* Controls color*/
+
+.control-color input {
+    display: none;
+}
+
+.control-color #color1:checked+label {
+    background-color: black;
+    color: white;
+}
+
+.control-color #color1 + label:hover {
+    background-color: black;
+    color: white;
+}
+
+.control-color #color2:checked+label {
+    background-color: red;
+    color: white;
+}
+
+.control-color #color2 + label:hover {
+    background-color: red;
+    color: white;
+}
+
+.control-color #color3:checked+label {
+    background-color: white;
+    color: black;
+}
+
+.control-color #color3 + label:hover {
+    background-color: white;
+    color: black;
+}
+
+.control-color #color4:checked+label {
+    background-image: linear-gradient(to right, #ff8961, #fffb89, #74BDCB, #0e42c4);
+    color: black;
+}
+
+.control-color #color4 +label:hover {
+    background-image: linear-gradient(to right, #ff8961, #fffb89, #74BDCB, #0e42c4);
+    color: black;
+}
+
+/* Reset button */
+.control-color, .control-size {
     display: flex;
     flex-direction: column;
 }
 
-.control-size > label{
-    width: 100%;
+.control-reset__button {
+    color: black;
+    box-sizing: content-box;
+    background-color:white;
+    text-align: center;
+    display: block;
+    padding: 5px 10px;
+    margin: 6px;
+    border: 1px solid black;
+	border-radius: 3px;
+    box-shadow: 0px 0px 1px black;
+	cursor:pointer;
+	font-size:16px;
 }
 
-.control-size label {
-    margin-bottom: 5px;
-}
-
-/* Override bootstrap */
-.btn-check:checked + .btn-secondary {
-	background-color: #682D63;
-}
-
-.btn-check:focus + .btn-secondary, .btn-secondary:focus {
-	box-shadow: none;
+.control-reset__button:hover {
+	background-color:#DEEFB7 !important;
+    color: black;
 }

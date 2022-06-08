@@ -14,7 +14,6 @@ window.onload = () => {
     createGrid(DEFAULTSIZE)
     setColor(BLACK)
     enableDraw()
-    resetGrid()
 
     listenToSizeControl()
     listenToColorControl()
@@ -24,7 +23,7 @@ window.onload = () => {
 // ######################### Function delcaration #############################
 function listenToSizeControl() {
     const sizeButtons = document.querySelectorAll(
-        'input[name="control-size__radio-button"]');
+        'input[name="control-size-radio-button"]');
     sizeButtons[1].checked = "true"; // Enable radio button 16x16 by default
     sizeButtons.forEach(function(radioButton){
         radioButton.addEventListener("click", function(e) {
@@ -35,7 +34,7 @@ function listenToSizeControl() {
 
 function listenToColorControl() {
     const colorButtons = document.querySelectorAll(
-        'input[name="control-color__radio-button"]');
+        'input[name="control-color-radio-button"]');
     colorButtons[0].checked = "true"; // Enable radio button Black by default
     colorButtons.forEach(function(button){
         button.addEventListener("click", function(e) {
@@ -63,6 +62,7 @@ function enableDraw() {
                 this.style.backgroundColor = color;
             } else {
                 this.style.backgroundColor = color;}})})
+    resetGrid()
 }
 
 function listenToReset() {
@@ -75,9 +75,6 @@ function listenToReset() {
 function setColor(newColor) {
     randomizeColor = (newColor == "random") ? true : false;
     color = (newColor == "random") ? "#" + Math.floor(Math.random()*16777215).toString(16) : newColor;
-}
-
-function brushColor() {
 }
 
 function resetGrid() {
