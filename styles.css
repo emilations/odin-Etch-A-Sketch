@@ -20,6 +20,7 @@ body * {
     color: aliceblue;
 }
 
+/* All things grid related */
 .main-block {
     display: flex;
     justify-content: center;
@@ -28,13 +29,13 @@ body * {
     align-items: center;
 }
 
-/* All things grid related */
 .grid {
     width: 500px; 
     height: 500px;
     border: 1px rgb(75, 75, 75) solid;
     display: flex;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .grid__row {
@@ -45,16 +46,11 @@ body * {
 
 .grid__element {
     flex: 1 1 0;
+    background-color: aliceblue;
     border: solid rgb(75, 75, 75) 1px;
 }
 
-.grid__element--hover {
-    background-color: black;
-}
-
-
-/* All things control related */
-.control-colour {
+.control-color {
     display: flex;
     flex-direction: column;
 }

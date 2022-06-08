@@ -1,26 +1,40 @@
-// Ini
-const DEFAULTSIZE = 16;
+// Initialisation #############################################################
 const grid = document.querySelector(".grid");
 
-// Function calling
-createGrid(DEFAULTSIZE);
-listenToRadio();
-drawGrid();
+const DEFAULTSIZE = 16;
+const BLACK = "black"
+const RED = "red"
+const WHITE = "white"
 
+let color = "black";
 
-function drawGrid() {
-    const gridElements = document.querySelectorAll(".grid__element");
-    gridElements.forEach((gridElement) => {
-        gridElement.addEventListener("mouseover", function(e){
-            this.classList.add("grid__element--hover")
-        })
-    })
-
+window.onload = () => {
+    createGrid(DEFAULTSIZE)
+    setColor(BLACK)
+    listenToRadio()
+    listenToButton()
+    enableDraw()
 }
 
-// A size of 16 will create a grid of 16x16
+// Function delcaration ##################################################################
+function listenToRadio() {
+    const radioButtons = document.querySelectorAll(
+        'input[name="control-size__radio-button"]');
+    radioButtons[1].checked = "true"; // Enable radio button 16x16 by default
+    radioButtons.forEach(function(radioButton){
+        radioButton.addEventListener("click", function(e) {
+            createGrid(e.originalTarget.value)})})
+}
+
+function listenToButton() {
+    const buttons = document.querySelectorAll(".control-color__button");
+    buttons.forEach(function(button){
+        button.addEventListener("click", function(e) {
+            setColor(e.originalTarget.value)})})
+}
+
 function createGrid(size) {
-    grid.innerHTML = "";
+    resetGrid()
     for (let i = 0; i < size; i++) {
         const gridRow = document.createElement("div");
         gridRow.classList.add("grid__row");
@@ -29,18 +43,24 @@ function createGrid(size) {
             gridElement.classList.add("grid__element");
             gridRow.append(gridElement)};
         grid.append(gridRow)}
-        drawGrid();
+    enableDraw()
 }
 
-// Listen to radio control for grid size
-function listenToRadio() {
-    const radioButtons = document.querySelectorAll('input[name="control-size__radio-button"]');
-    // fix start: enable default value
-    radioButtons[1].checked = "true";
-    // fix end:
-    radioButtons.forEach(function(radioButton){
-        radioButton.addEventListener("click", function(e) {
-            createGrid(e.originalTarget.value)
-        })
+function enableDraw() {
+    const gridElements = document.querySelectorAll(".grid__element");
+    gridElements.forEach((gridElement) => {
+        gridElement.addEventListener("mouseover", brushColor)
     })
+}
+
+function setColor(newColor) {
+    color = newColor;
+}
+
+function brushColor() {
+    this.style.backgroundColor = color;
+}
+
+function resetGrid() {
+    grid.innerHTML = "";
 }
