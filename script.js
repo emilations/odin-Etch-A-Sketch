@@ -27,7 +27,8 @@ function listenToSizeControl() {
     sizeButtons[1].checked = "true"; // Enable radio button 16x16 by default
     sizeButtons.forEach(function(radioButton){
         radioButton.addEventListener("click", function(e) {
-            createGrid(e.originalTarget.value);
+            console.log(e)
+            createGrid(e.target.value);
             enableDraw();
         })})
 }
@@ -38,7 +39,7 @@ function listenToColorControl() {
     colorButtons[0].checked = "true"; // Enable radio button Black by default
     colorButtons.forEach(function(button){
         button.addEventListener("click", function(e) {
-            setColor(e.originalTarget.value)})})
+            setColor(e.target.value)})})
 }
 
 function createGrid(size) {
