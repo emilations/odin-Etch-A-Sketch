@@ -16,26 +16,28 @@ window.onload = () => {
     enableDraw()
     resetGrid()
 
-    listenToRadio()
-    listenToButton()
+    listenToSizeControl()
+    listenToColorControl()
     listenToReset()
 }
 
 // ######################### Function delcaration #############################
-function listenToRadio() {
-    const radioButtons = document.querySelectorAll(
+function listenToSizeControl() {
+    const sizeButtons = document.querySelectorAll(
         'input[name="control-size__radio-button"]');
-    radioButtons[1].checked = "true"; // Enable radio button 16x16 by default
-    radioButtons.forEach(function(radioButton){
+    sizeButtons[1].checked = "true"; // Enable radio button 16x16 by default
+    sizeButtons.forEach(function(radioButton){
         radioButton.addEventListener("click", function(e) {
             createGrid(e.originalTarget.value);
             enableDraw();
         })})
 }
 
-function listenToButton() {
-    const buttons = document.querySelectorAll(".control-color__button");
-    buttons.forEach(function(button){
+function listenToColorControl() {
+    const colorButtons = document.querySelectorAll(
+        'input[name="control-color__radio-button"]');
+    colorButtons[0].checked = "true"; // Enable radio button Black by default
+    colorButtons.forEach(function(button){
         button.addEventListener("click", function(e) {
             setColor(e.originalTarget.value)})})
 }
