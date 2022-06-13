@@ -82,7 +82,3 @@ function resetGrid() {
     gridElements.forEach((gridElement) => {
         gridElement.style.backgroundColor = WHITE})
 }
-
-function randomColor() {
-    let randomNumber = Math.random()
-}
